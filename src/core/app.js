@@ -88,7 +88,14 @@ function showWelcomeScreen() {
 
             }
 
-            location.reload();
+            document.body.innerHTML = `
+                <div id="app">
+                    <header id="navbar"></header>
+                    <main id="page"></main>
+                </div>
+            `;
+
+            loadApplication();
 
         });
 
