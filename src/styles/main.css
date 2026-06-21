@@ -1,0 +1,946 @@
+:root{
+--bg:#0f172a;
+--panel:#111827;
+--panel-hover:#1e293b;
+--text:#f8fafc;
+--secondary:#94a3b8;
+--primary:#06b6d4;
+--success:#22c55e;
+--warning:#f59e0b;
+--danger:#ef4444;
+--border:#334155;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:Inter,Segoe UI,sans-serif;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+#page{
+max-width:1400px;
+margin:auto;
+animation:fadeIn .4s ease;
+}
+
+#networkCanvas{
+position:fixed;
+inset:0;
+z-index:-1;
+opacity:.35;
+}
+
+.navbar-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(15,23,42,.85);
+backdrop-filter:blur(15px);
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.logo-wrapper{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-text{
+color:var(--primary);
+font-weight:700;
+}
+
+/* =========================
+NAVBAR
+========================= */
+nav{
+display:flex;
+gap:10px;
+}
+
+nav button{
+background:transparent;
+border:none;
+color:var(--text);
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+transition:.25s;
+}
+
+nav button:hover{
+background:var(--panel-hover);
+color:var(--primary);
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+min-height:85vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+
+.hero-content{
+max-width:850px;
+z-index:2;
+}
+
+.hero-badge{
+display:inline-block;
+padding:8px 16px;
+background:rgba(6,182,212,.15);
+border:1px solid rgba(6,182,212,.4);
+border-radius:999px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:5rem;
+line-height:1;
+letter-spacing:-2px;
+margin-bottom:30px;
+}
+
+.hero p{
+color:var(--secondary);
+font-size:1.15rem;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.hero-button{
+background:var(--primary);
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:12px;
+cursor:pointer;
+font-size:1rem;
+box-shadow:0 0 30px rgba(6,182,212,.35);
+transition:.3s;
+}
+
+.hero-button:hover{
+transform:translateY(-3px);
+}
+
+.hero-button-secondary{
+background:transparent;
+border:1px solid var(--border);
+color:white;
+padding:15px 30px;
+border-radius:12px;
+cursor:pointer;
+}
+
+.hero-glow{
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,rgba(6,182,212,.25),transparent);
+filter:blur(120px);
+}
+
+/* =========================
+HOME
+========================= */
+
+.home-cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+padding:40px;
+}
+
+.card{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:20px;
+padding:30px;
+cursor:pointer;
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:var(--primary);
+}
+
+.card-icon{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.card p{
+color:var(--secondary);
+line-height:1.7;
+}
+
+/* =========================
+PAGE-HEADER
+========================= */
+
+.page-header{
+text-align:center;
+padding:60px 20px;
+}
+
+.page-header h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.page-header p{
+color:var(--secondary);
+}
+
+/* =========================
+LEARN
+========================= */
+
+.topic-view{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 30px;
+}
+
+.topic-view h2{
+    margin-bottom:25px;
+}
+
+.topic-view p{
+    margin-bottom:24px;
+    line-height:1.8;
+    color:var(--text);
+}
+
+.back-button{
+background:transparent;
+border:1px solid var(--border);
+color:white;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+margin-bottom:0;
+}
+
+.info-box{
+margin-top:30px;
+padding:25px;
+border:1px solid var(--border);
+border-radius:20px;
+background:var(--panel);
+}
+
+.chain-demo{
+display:flex;
+align-items:center;
+gap:20px;
+margin-top:40px;
+}
+
+.chain-block{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:15px;
+padding:30px;
+}
+
+.chain-arrow{
+font-size:2rem;
+}
+
+.hash-input{
+width:100%;
+padding:15px;
+margin-top:20px;
+border-radius:10px;
+border:1px solid var(--border);
+background:var(--panel);
+color:white;
+}
+
+.hash-result{
+margin-top:20px;
+padding:20px;
+border-radius:10px;
+background:var(--panel);
+}
+
+.nonce-box{
+    margin-top:20px;
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:rgba(255,255,255,0.03);
+    min-height:180px;
+    line-height:1.6;
+}
+
+.crypto-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.coin-card,
+.block-visual,
+.tx-demo,
+.pow-demo,
+.stake-demo{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:15px;
+padding:30px;
+}
+
+.nodes-demo{
+display:flex;
+gap:30px;
+margin-top:40px;
+}
+
+.node-circle{
+width:80px;
+height:80px;
+border-radius:50%;
+background:var(--primary);
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:bold;
+}
+
+.mempool-demo{
+display:flex;
+gap:15px;
+margin-top:30px;
+}
+
+.tx-box{
+background:var(--panel);
+padding:20px;
+border-radius:10px;
+}
+
+/* =========================
+EXPLORER
+========================= */
+
+.explorer-dashboard{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:40px;
+padding:40px;
+}
+
+.block-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.block-card{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:20px;
+padding:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+.block-card:hover{
+transform:translateY(-6px);
+border-color:var(--primary);
+}
+
+.block-card-icon{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.block-panel{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:20px;
+padding:30px;
+position:sticky;
+top:120px;
+}
+
+.block-panel p{
+margin-top:12px;
+line-height:1.8;
+}
+
+.transactions-list{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.transaction-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+border-radius:12px;
+}
+
+#blockExplanation{
+margin-top:40px;
+}
+
+.explainer-box{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:20px;
+padding:30px;
+}
+
+#explainerTitle{
+color:var(--primary);
+margin-bottom:20px;
+}
+
+#explainerText{
+line-height:1.9;
+}
+/* =========================
+SIMULATOR
+========================= */
+
+.simulation-wrapper{
+position:relative;
+padding:60px;
+}
+
+.flow-row{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.flow-box{
+width:150px;
+height:150px;
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+transition:.4s;
+}
+
+.flow-icon{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.active-box{
+border-color:var(--primary);
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(6,182,212,.4);
+}
+
+#coin{
+position:absolute;
+top:10px;
+left:50px;
+font-size:2.5rem;
+transition:all 1s ease;
+}
+
+.simulation-controls{
+text-align:center;
+margin-top:40px;
+}
+
+.simulation-controls button{
+background:var(--primary);
+border:none;
+color:white;
+padding:15px 30px;
+border-radius:12px;
+cursor:pointer;
+}
+
+.simulation-info{
+max-width:900px;
+margin:40px auto;
+padding:30px;
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:20px;
+}
+
+.simulation-info h2{
+color:var(--primary);
+margin-bottom:20px;
+}
+
+/* =========================
+FOOTER
+========================= */
+.footer{
+margin-top:80px;
+border-top:1px solid var(--border);
+padding:30px;
+display:flex;
+justify-content:space-between;
+color:var(--secondary);
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:1100px){
+
+.home-cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+.block-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar-container{
+flex-direction:column;
+gap:20px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+.home-cards,
+.block-grid{
+grid-template-columns:1fr;
+}
+
+.explorer-dashboard{
+grid-template-columns:1fr;
+}
+
+.footer{
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
+
+.flow-row{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+/* =========================
+ATTACKS
+========================= */
+
+.attack-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+padding:40px;
+}
+
+.attack-card{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:20px;
+padding:25px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+margin-top:80px;
+border-top:1px solid var(--border);
+padding:30px;
+display:flex;
+justify-content:space-between;
+color:var(--secondary);
+}
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes fadeIn{
+
+from{
+    opacity:0;
+    transform:translateY(20px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+.home-cards{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.crypto-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar-container{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.home-cards{
+    grid-template-columns:1fr;
+}
+
+.explorer-layout{
+    grid-template-columns:1fr;
+}
+
+.footer{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+}
+}
+
+/* =========================================
+NETWORK BLOCKCHAIN
+========================================= */
+
+.network-container{
+    position:relative;
+    width:700px;
+    height:550px;
+    margin:40px auto;
+}
+
+.network-lines{
+    position:absolute;
+    inset:0;
+}
+
+.network-node{
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:2rem;
+    transition:.4s;
+    z-index:2;
+}
+
+.network-node span{
+    margin-top:10px;
+    font-size:.9rem;
+    font-weight:600;
+}
+
+.tx-counter{
+    margin-top:8px;
+    font-size:.8rem;
+    color:var(--secondary);
+}
+
+.network-active{
+    border-color:var(--primary);
+    box-shadow:
+        0 0 30px
+        rgba(6,182,212,.5);
+    transform:scale(1.08);
+}
+
+#networkTx{
+    position:absolute;
+    left:280px;
+    top:50px;
+    font-size:2.5rem;
+    transition:all 1s ease;
+    z-index:3;
+}
+
+.network-info{
+    max-width:900px;
+    margin:40px auto;
+    padding:30px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:20px;
+}
+
+.network-info h2{
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+.network-info p{
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+/* =========================================
+MINING
+========================================= */
+
+.mining-layout{
+    display:grid;
+    grid-template-columns:320px 320px 320px;
+    justify-content:center;
+    align-items:start;
+    gap:40px;
+    margin-top:40px;
+}
+
+/* ---------- CAJAS PRINCIPALES ---------- */
+
+.mempool-box,
+.miner-box,
+.mining-status{
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:20px;
+}
+
+/* ---------- MEMPOOL ---------- */
+
+.mempool-box{
+    padding:25px;
+}
+
+.tx-item{
+    padding:12px;
+    margin-top:10px;
+    background:rgba(255,255,255,.04);
+    border-radius:10px;
+}
+
+/* ---------- MINERO ---------- */
+
+.miner-box{
+    height:250px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.miner-icon{
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.miner-box h2{
+    font-size:1.8rem;
+    margin:0;
+}
+
+/* ---------- ESTADO MINERÍA ---------- */
+
+.mining-status{
+    padding:30px;
+}
+
+#nonceValue,
+#hashValue{
+    margin-top:10px;
+    margin-bottom:20px;
+    font-size:1.2rem;
+    color:var(--primary);
+}
+
+#hashResult{
+    margin-top:20px;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+/* ---------- PANEL EXPLICACIÓN ---------- */
+
+.mining-info{
+    max-width:900px;
+    margin:40px auto;
+    padding:30px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:20px;
+}
+
+/* ---------- BLOQUE GENERADO ---------- */
+
+.block-preview{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+}
+
+.success-block{
+    border-color:var(--success);
+    box-shadow:
+        0 0 30px rgba(34,197,94,.3);
+}
+
+/* ---------- INTENTOS ---------- */
+
+.attempts-box{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    margin-top:25px;
+}
+
+.attempt-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px;
+    margin-top:8px;
+    border-radius:10px;
+    background:rgba(255,255,255,.03);
+    font-size:.9rem;
+}
+
+.attempt-fail{
+    color:#ef4444;
+}
+
+.attempt-success{
+    color:#22c55e;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:1100px){
+
+    .mining-layout{
+        grid-template-columns:1fr;
+        justify-items:center;
+    }
+
+    .mempool-box,
+    .miner-box,
+    .mining-status{
+        width:100%;
+        max-width:500px;
+    }
+
+}
+#generatedBlock{
+    max-width:1040px;
+    margin:25px auto 0 auto;
+}
+
+/* =========================
+TOPIC NAVIGATION
+========================= */
+
+.topic-navigation{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:50px;
+}
+
+.nav-button{
+    width:120px;
+
+    background:transparent;
+    border:1px solid var(--border);
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.nav-button:hover{
+    border-color:var(--primary);
+    color:var(--primary);
+}
