@@ -2,15 +2,21 @@ import { router } from "./router.js";
 import { createNavbar } from "../components/navbar/navbar.js";
 import { createNetworkBackground } from "../components/background/networkBackground.js";
 
+function loadApplication() {
+
+    createNetworkBackground();
+    createNavbar();
+    router("home");
+
+}
+
 function showWelcomeScreen() {
 
-    if(localStorage.getItem("welcomeAccepted") === "true"){
+    if (localStorage.getItem("welcomeAccepted") === "true") {
 
-        createNetworkBackground();
-        createNavbar();
-        router("home");
-
+        loadApplication();
         return;
+
     }
 
     document.body.innerHTML = `
@@ -26,22 +32,26 @@ function showWelcomeScreen() {
             </p>
 
             <p>
-                Esta aplicación ha sido diseñada principalmente para
-                ordenadores de escritorio.
+                Esta plataforma permite comprender de forma visual e interactiva
+                los conceptos fundamentales de blockchain y las criptomonedas.
             </p>
 
             <p>
-                Actualmente no se encuentra optimizada para
-                dispositivos móviles.
+                La aplicación ha sido diseñada principalmente para su utilización
+                en ordenadores de escritorio.
             </p>
 
             <p>
-                Resolución recomendada: 1366x768 o superior.
+                Actualmente no se encuentra optimizada para dispositivos móviles.
+            </p>
+
+            <p>
+                Resolución recomendada: 1366 × 768 píxeles o superior.
             </p>
 
             <label class="remember-option">
                 <input type="checkbox" id="rememberWelcome">
-                No volver a mostrar este mensaje
+                Recordar mi elección
             </label>
 
             <button id="enterPlatform">
@@ -51,15 +61,16 @@ function showWelcomeScreen() {
         </div>
 
     </div>
+
     `;
 
     document
         .getElementById("enterPlatform")
         .addEventListener("click", () => {
 
-            if(document.getElementById("rememberWelcome").checked){
+            if (document.getElementById("rememberWelcome").checked) {
 
-                localStorage.setItem("welcomeAccepted","true");
+                localStorage.setItem("welcomeAccepted", "true");
 
             }
 
@@ -71,12 +82,17 @@ function showWelcomeScreen() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    showWelcomeScreen();
-    if(window.innerWidth < 1024){
+    if (
+        window.innerWidth < 1024 &&
+        localStorage.getItem("welcomeAccepted") !== "true"
+    ) {
 
         alert(
             "Esta plataforma ha sido diseñada para ordenadores de escritorio. Algunas funcionalidades pueden no mostrarse correctamente en dispositivos móviles."
         );
 
     }
+
+    showWelcomeScreen();
+
 });
