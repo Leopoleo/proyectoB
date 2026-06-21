@@ -33,8 +33,6 @@ function showWelcomeScreen() {
                 Trabajo Fin de Grado desarrollado con fines educativos por LPC.
             </p>
 
-            <p>  </p>
-
             <p>
                 La aplicación ha sido diseñada principalmente para su utilización
                 en ordenadores de escritorio.
