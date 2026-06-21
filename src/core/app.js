@@ -2,6 +2,8 @@ import { router } from "./router.js";
 import { createNavbar } from "../components/navbar/navbar.js";
 import { createNetworkBackground } from "../components/background/networkBackground.js";
 
+const ACCESS_PASSWORD = "TFG2026";
+
 function loadApplication() {
 
     createNetworkBackground();
@@ -25,16 +27,13 @@ function showWelcomeScreen() {
 
         <div class="welcome-card">
 
-            <h1>Plataforma Educativa Blockchain</h1>
+            <h1>Blockchain y Criptomonedas</h1>
 
             <p>
-                Trabajo Fin de Grado desarrollado con fines educativos.
+                Trabajo Fin de Grado desarrollado con fines educativos por LPC.
             </p>
 
-            <p>
-                Esta plataforma permite comprender de forma visual e interactiva
-                los conceptos fundamentales de blockchain y las criptomonedas.
-            </p>
+            <p>  </p>
 
             <p>
                 La aplicación ha sido diseñada principalmente para su utilización
@@ -49,9 +48,14 @@ function showWelcomeScreen() {
                 Resolución recomendada: 1366 × 768 píxeles o superior.
             </p>
 
+            <input
+                type="password"
+                id="accessPassword"
+                placeholder="Introduzca la contraseña de acceso">
+
             <label class="remember-option">
                 <input type="checkbox" id="rememberWelcome">
-                Recordar mi elección
+                Recordar mi acceso
             </label>
 
             <button id="enterPlatform">
@@ -68,6 +72,16 @@ function showWelcomeScreen() {
         .getElementById("enterPlatform")
         .addEventListener("click", () => {
 
+            const password =
+                document.getElementById("accessPassword").value;
+
+            if (password !== ACCESS_PASSWORD) {
+
+                alert("Contraseña incorrecta");
+                return;
+
+            }
+
             if (document.getElementById("rememberWelcome").checked) {
 
                 localStorage.setItem("welcomeAccepted", "true");
@@ -81,17 +95,6 @@ function showWelcomeScreen() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    if (
-        window.innerWidth < 1024 &&
-        localStorage.getItem("welcomeAccepted") !== "true"
-    ) {
-
-        alert(
-            "Esta plataforma ha sido diseñada para ordenadores de escritorio. Algunas funcionalidades pueden no mostrarse correctamente en dispositivos móviles."
-        );
-
-    }
 
     showWelcomeScreen();
 
