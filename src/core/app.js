@@ -72,5 +72,11 @@ function showWelcomeScreen() {
 document.addEventListener("DOMContentLoaded", () => {
 
     showWelcomeScreen();
+    if(window.innerWidth < 1024){
 
+        alert(
+            "Esta plataforma ha sido diseñada para ordenadores de escritorio. Algunas funcionalidades pueden no mostrarse correctamente en dispositivos móviles."
+        );
+
+    }
 });
