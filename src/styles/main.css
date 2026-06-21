@@ -944,3 +944,44 @@ TOPIC NAVIGATION
     border-color:var(--primary);
     color:var(--primary);
 }
+.welcome-screen{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.welcome-card{
+    max-width:700px;
+    width:100%;
+    background:rgba(15,23,42,.95);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+}
+
+.welcome-card h1{
+    margin-bottom:25px;
+}
+
+.welcome-card p{
+    margin-bottom:15px;
+    line-height:1.7;
+}
+
+.remember-option{
+    display:block;
+    margin:25px 0;
+}
+
+#enterPlatform{
+    padding:14px 28px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+}
